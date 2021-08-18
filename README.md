@@ -1,4 +1,4 @@
-# Diagnostico-Precoce-de-Doencas-Cardiovasculares
+# 2 - Diagnostico Precoce de Doencas Cardiovasculares
 Neste trabalho utilizamos algoritmos de classificação para criar um modelo de diagnóstico para doença cardiovascular. O trabalho foi realizado em python.
 
 ----------------------------------------||------------------------------------------
@@ -16,7 +16,7 @@ Observe que a variação da precisão dada pelo time de especialistas, faz com q
 
 Objetivo: criar uma ferramenta que aumente a precisão do diagnóstico e que essa precisão seja estável para todos os diagnósticos.
 
-Neste trabalho a base de dados recebida, apesar de parecer ter alguns valores distantes da realidade, optamos por deixar o modelo de classificação dar conta disso. Para preparar os dados para a classificação os colocamos em categorias. Consideramos as faixas de risco, indicadas na literatura especializada, de colesterol, glicose, pressão arterial sistólica e diastólica e índice de massa corporal. Para a idade criamos uma faixa etária que parecia lógica.
-Com as variáveis categorizadas observamos a relação de cada uma delas com a presença, ou ausência, de doença cardiovascular. Para isso visemos o uso de visualização gráfica, pois, como as variáveis não eram quantitativas, não queríamos ser enganados por uma matriz de correlação.
-Tendo em mãos as variáveis que mais afetam a presença de doença cardiovascular testamos três algoritmos de classificação: DecisionTreeClassifier, Random Forest Classifier e ExtraTreesClassifier. Escolhemos o classificador Random Forest Classifier que obteve uma média de acurácia de 72.98% com intervalo de erro de [71.56%, 74.40%].
-Logo, o lucro que a Cardio Catch Diseases passará a ter é de, no mínimo, R$ 2000,00.
+Para preparar os dados para a classificação os colocamos em categorias. Consideramos as faixas de risco, indicadas na literatura especializada, de colesterol, glicose, pressão arterial sistólica e diastólica e índice de massa corporal. Para a idade criamos uma faixa etária que parecia lógica.
+Com as variáveis categorizadas observamos a relação de cada uma delas com a presença, ou ausência, de doença cardiovascular. Para isso fisemos o uso de visualização gráfica. Para garantir a certeza das associações das variáveis com a presença de doença fizemos o uso do teste qui-quadrado de pearson onde a hipótese nula é "as duas variáveis categóricas se associam de forma aleatória" e a hipótese alternativa é "as duas variáveis categóricas não se associam de forma aleatória".
+Tendo em mãos as variáveis que mais afetam a presença de doença cardiovascular testamos dois algoritmos de classificação: RandomTreeClassifier (adiciona variabilidade nos dados) e ExtraTreeClassifier (adiciona variabilidade nos classificadores). Otimizamos os hiperpãrametros utilizando RandomizedSearchCV() da biblioteca scikit learn. Os dois algoritmos testados tiveram resultados muito próximos, porém o RandomForestClassifier por este ter precisado de menos estimadores. O Random Forest Classifier obteve uma média de acurácia de 72.5%, com intervalo = [71.38%, 73.79%]. Logo, o lucro que a Cardio Catch Diseases passará a ter é de R$ 2000,00 por diagnóstico.
+Por fim preparamos uma função que, a partir de 9 perguntas, retorna o diagnóstico do paciente. 
